@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IPVigilante Clean Architecture</string>
+    <string name="enter_ip_address_here">Enter IP Address Here</string>
+    <string name="check_ip_address">Check IP Address</string>
+    <string name="ip_address_is_correct">IP Address is correct</string>
+    <string name="ip_address_is_incorrect">IP Address is incorrect</string>
+    <string name="connection_error_message">There was a connection error whilst checking info for your IP address</string>
+    <string name="unkniwn_error_message">Unknown error occurred</string>
+    <string name="parsing_problem_message">There was a problem reading response from the Vigilante Service</string>
+    <string name="info_received_message">Information received successfully</string>
+</resources>

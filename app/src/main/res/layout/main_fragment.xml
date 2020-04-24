@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainFragment">
+
+    <EditText
+        android:id="@+id/ip_address_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="@string/enter_ip_address_here"
+        android:importantForAutofill="no"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/ip_address_status"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:maxLines="4"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_input"
+        app:layout_constraintStart_toStartOf="@+id/ip_address_input"/>
+
+    <TextView
+        android:id="@+id/ip_address_response"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:lines="7"
+        app:layout_constraintTop_toBottomOf="@id/ip_address_status"
+        app:layout_constraintStart_toStartOf="@id/ip_address_input"
+        app:layout_constraintEnd_toEndOf="@id/ip_address_input"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/send_ip_request_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:background="#FFFFFF"
+        android:text="@string/check_ip_address"
+        app:icon="@android:drawable/ic_menu_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

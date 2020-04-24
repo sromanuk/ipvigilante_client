@@ -1,0 +1,25 @@
+*.iml
+
+#IntelliJ IDEA
+.idea
+
+#Gradle
+.gradle
+
+#Release Build
+manifest-merger-release-report.txt
+mapping_*.txt
+
+#Android Studio Memory Profiler
+captures/
+
+#KeyStore file
+*.jks
+
+#Others
+.DS_Store
+tmp
+*.iml
+/local.properties
+/build
+.externalNativeBuild
