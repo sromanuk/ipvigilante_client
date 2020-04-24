@@ -9,17 +9,11 @@ import com.sromanuk.ipvigilante.use_cases.main.IPVigilanteUseCase
 class MainViewModel : ViewModel() {
     private val ipVigilanteService = IPVigilanteRetrofitClient().getIPVigilanteService()
     private val ipVigilanteUseCase = IPVigilanteUseCase()
-    var currentIPAddress: String? = null
     var vigilanteCallbacks: IPVigilanteCallbacks? = null
 
 
     fun getIPAddressInfo(ipAddress: String? = null, context: LifecycleOwner) {
-        val ipAddressForRequest = if (ipAddress == null || ipAddress.isBlank())
-            currentIPAddress
-        else
-            ipAddress
-
-        val result = ipVigilanteUseCase.sendIPInfoRequest(ipVigilanteService, ipAddressForRequest)
+        val result = ipVigilanteUseCase.sendIPInfoRequest(ipVigilanteService, ipAddress)
         if (result == null) {
             vigilanteCallbacks?.setToConnectionError()
         }
