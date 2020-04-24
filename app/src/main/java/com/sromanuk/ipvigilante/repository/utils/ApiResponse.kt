@@ -33,14 +33,14 @@ import java.util.regex.Pattern
 internal const val UNKNOWN_CODE = -1
 
 class ApiResponse<T> {
-    val code: Int
+    private val code: Int
 
     @Nullable
     val body: T?
 
     @Nullable
     val errorMessage: String?
-    val links: MutableMap<String, String>
+    private val links: MutableMap<String, String>
 
     constructor(error: Throwable) {
         code = 500
@@ -64,7 +64,7 @@ class ApiResponse<T> {
                     ignored.printStackTrace()
                 }
             }
-            if (message == null || message.trim { it <= ' ' }.length == 0) {
+            if (message == null || message.trim { it <= ' ' }.isEmpty()) {
                 message = response.message()
             }
             errorMessage = message
@@ -86,18 +86,18 @@ class ApiResponse<T> {
     }
 
     val isSuccessful: Boolean
-        get() = code >= 200 && code < 300
+        get() = code in 200..299
 
     val nextPage: Int?
         get() {
             val next = links[NEXT_LINK] ?: return null
             val matcher: Matcher = PAGE_PATTERN.matcher(next)
-            return if (!matcher.find() || matcher.groupCount() !== 1) {
+            return if (!matcher.find() || matcher.groupCount() != 1) {
                 null
             } else try {
-                matcher.group(1).toInt()
+                matcher.group(1)?.toInt()
             } catch (ex: NumberFormatException) {
-                Log.w("APIResponse","cannot parse next page from ${next}")
+                Log.w("APIResponse","cannot parse next page from $next")
                 null
             }
         }

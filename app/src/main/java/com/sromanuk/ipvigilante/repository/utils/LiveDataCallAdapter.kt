@@ -35,7 +35,7 @@ class LiveDataCallAdapter<R>(private val responseType: Type) : CallAdapter<R, Li
 
     override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> {
         return object : LiveData<ApiResponse<R>>() {
-            internal var started = AtomicBoolean(false)
+            var started = AtomicBoolean(false)
 
             override fun onActive() {
                 super.onActive()
